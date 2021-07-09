@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-manage-user-roles';
+  user: any;
+  
+  public get isAdmin() : boolean {
+    return true; 
+  }
+
+  logout(){}
+  
 }
