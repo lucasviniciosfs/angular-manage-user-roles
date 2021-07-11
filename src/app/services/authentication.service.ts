@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
 
   private userSubject: BehaviorSubject<User | null>;
+  //this user is just to subscribe to appcomponent 
+  //continue listening the status of user
+  public user: Observable<User | null>;
 
   constructor(
     private router: Router,
@@ -22,6 +25,7 @@ export class AuthenticationService {
     this.userSubject = new BehaviorSubject<User | null>(
       JSON.parse(localStorage.getItem('user')!)
     )
+    this.user = this.userSubject.asObservable();
   }
 
   public get userSubjectValue() : User | null {
