@@ -1,4 +1,7 @@
+import { AuthenticationService } from './services/authentication.service';
+import { User } from 'src/app/shared/models/user';
 import { Component } from '@angular/core';
+import { Role } from './shared/models/Role';
 
 @Component({
   selector: 'app-root',
@@ -6,12 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user: any;
+  user!: User;
   
-  public get isAdmin() : boolean {
-    return true; 
+  constructor(
+    private authenticationService: AuthenticationService
+  ){
+    this.authenticationService.user.subscribe(user => this.user = user!)
   }
 
-  logout(){}
+  public get isAdmin() : boolean {
+    return this.user && this.user.role === Role.Admin;
+  }
+
+  logout(){
+    this.authenticationService.logout();
+  }
   
 }
