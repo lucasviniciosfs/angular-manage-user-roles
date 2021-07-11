@@ -1,5 +1,7 @@
 # AngularManageUserRoles
 
+https://jasonwatmore.com/post/2020/09/09/angular-10-role-based-authorization-tutorial-with-example#project-structure
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
 
 ## Development server
